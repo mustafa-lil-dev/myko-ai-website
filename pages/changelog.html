@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Changelog — Myko AI</title>
+<meta name="description" content="Every Myko AI release, newest first." />
+<link rel="canonical" href="https://myko-beta.vercel.app/pages/changelog.html" />
+<link rel="icon" href="../assets/img/logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+<canvas id="bg-mesh" aria-hidden="true"></canvas>
+
+<header class="site-header">
+  <div class="wrap nav-row">
+    <a href="/" class="brand">
+      <img src="../assets/img/logo.png" alt="Myko AI logo" />
+      Myko AI
+      <span class="stars-pill">★ <span data-github-stars>—</span></span>
+    </a>
+    <nav class="main-nav">
+      <a href="../index.html#product">Product</a>
+      <a href="../index.html#agents">AI</a>
+      <a href="../index.html#opensource">Open Source</a>
+      <a href="about.html">About</a>
+      <a href="changelog.html">Changelog</a>
+      <a href="https://github.com/mustafa-lil-dev/myko-ai-terminal" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle color theme">◐</button>
+      <a class="btn btn-primary btn-sm" href="../index.html#download">Download</a>
+      <button class="icon-btn menu-toggle" data-menu-toggle aria-label="Open menu">☰</button>
+    </div>
+  </div>
+  <nav class="mobile-nav">
+    <a href="../index.html#product">Product</a>
+    <a href="../index.html#agents">AI</a>
+    <a href="../index.html#opensource">Open Source</a>
+    <a href="about.html">About</a>
+    <a href="changelog.html">Changelog</a>
+    <a href="https://github.com/mustafa-lil-dev/myko-ai-terminal" target="_blank" rel="noopener">GitHub</a>
+  </nav>
+</header>
+
+<main>
+  <section class="page-header">
+    <div class="wrap prose">
+      <span class="kicker">changelog</span>
+      <h1 class="display" style="font-size:clamp(2rem,4vw,2.8rem);">Changelog</h1>
+      <p class="tagline">Every release, newest first.</p>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="wrap prose" style="max-width:720px;">
+
+      <div class="release">
+        <div class="release-head"><span class="v">v0.8.5</span><span class="tag">Latest release</span></div>
+        <ul>
+          <li>Faster cold start on Windows, down another ~15%</li>
+          <li>Agent diffs now group related file changes together</li>
+          <li>New high-contrast theme</li>
+          <li>Fixed a rare crash when closing a split pane mid-command</li>
+        </ul>
+      </div>
+
+      <div class="release">
+        <div class="release-head"><span class="v">v0.8.0</span><span class="tag">Agent notifications, Windows install polish</span></div>
+        <ul>
+          <li>Agents now surface a system notification when a long task finishes</li>
+          <li>Rewritten Windows installer with fewer prompts</li>
+          <li>Editor: smarter bracket matching for JSX/TSX</li>
+        </ul>
+      </div>
+
+      <div class="release">
+        <div class="release-head"><span class="v">v0.7.2</span><span class="tag">Voice input, snippets</span></div>
+        <ul>
+          <li>Voice input for dictating prompts and commands</li>
+          <li>Reusable snippets bound to slash commands</li>
+          <li>Preview pane now auto-detects Vite and Next.js dev servers</li>
+        </ul>
+      </div>
+
+      <div class="release">
+        <div class="release-head"><span class="v">v0.7.0</span><span class="tag">Local model support</span></div>
+        <ul>
+          <li>First-class support for local models through LM Studio</li>
+          <li>MYKO.md project context file, read automatically by agents</li>
+          <li>Git graph: collapse merged branches by default</li>
+        </ul>
+      </div>
+
+      <div class="release">
+        <div class="release-head"><span class="v">v0.6.4</span><span class="tag">Stability pass</span></div>
+        <ul>
+          <li>Fixed memory growth during long-running terminal sessions</li>
+          <li>Improved scrollback search performance on large logs</li>
+        </ul>
+      </div>
+
+      <div class="release">
+        <div class="release-head"><span class="v">v0.6.0</span><span class="tag">Multi-agent planning</span></div>
+        <ul>
+          <li>Agents can now break a request into a visible task list before editing anything</li>
+          <li>Sub-agent support for parallel research and editing steps</li>
+          <li>New command palette shortcut</li>
+        </ul>
+      </div>
+
+      <div class="release">
+        <div class="release-head"><span class="v">v0.5.1</span><span class="tag">Theming overhaul</span></div>
+        <ul>
+          <li>Custom background image and gradient support</li>
+          <li>Editor theme file now exports to your config folder</li>
+          <li>Fixed contrast issues in the light theme</li>
+        </ul>
+      </div>
+
+      <div class="release">
+        <div class="release-head"><span class="v">v0.5.0</span><span class="tag">Vim mode</span></div>
+        <ul>
+          <li>Full modal editing — insert, visual, replace, and command modes</li>
+          <li>Custom keybinding support</li>
+        </ul>
+      </div>
+
+      <div class="release">
+        <div class="release-head"><span class="v">v0.4.3</span><span class="tag">Git graph, round two</span></div>
+        <ul>
+          <li>Rebuilt commit graph rendering for large repositories</li>
+          <li>Hunk-level staging from the diff view</li>
+        </ul>
+      </div>
+
+      <div class="release">
+        <div class="release-head"><span class="v">v0.3.0</span><span class="tag">AI autocomplete</span></div>
+        <ul>
+          <li>Context-aware inline completions in the editor</li>
+          <li>Bring-your-own-key support for OpenAI-compatible providers</li>
+        </ul>
+      </div>
+
+      <div class="release">
+        <div class="release-head"><span class="v">v0.1.0</span><span class="tag">First public preview</span></div>
+        <ul>
+          <li>Initial terminal, file explorer, and editor</li>
+          <li>Split panes and tabs</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand"><img src="../assets/img/logo.png" alt="Myko AI logo" />Myko AI</div>
+        <p>Terminal. Editor. Agents. Git. Preview. One workspace.</p>
+        <p class="mono" style="font-size:12px;color:var(--text-faint);margin-top:14px;">v0.8.5 · Preview</p>
+      </div>
+      <div class="footer-col">
+        <h5>Product</h5>
+        <a href="../index.html#download">Download</a>
+        <a href="../index.html#product">Features</a>
+        <a href="changelog.html">Changelog</a>
+        <a href="about.html">About</a>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="security.html">Security</a>
+      </div>
+      <div class="footer-col">
+        <h5>Community</h5>
+        <a href="https://github.com/mustafa-lil-dev/myko-ai-terminal" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/mustafa-lil-dev/myko-ai-terminal/issues" target="_blank" rel="noopener">Issues</a>
+        <a href="https://github.com/mustafa-lil-dev/myko-ai-terminal/releases" target="_blank" rel="noopener">Releases</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Myko AI. All rights reserved.</span>
+      <span><a href="https://github.com/mustafa-lil-dev" target="_blank" rel="noopener">github.com/mustafa-lil-dev</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

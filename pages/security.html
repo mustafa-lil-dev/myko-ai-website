@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Security — Myko AI</title>
+<meta name="description" content="How to report a security vulnerability in Myko AI." />
+<link rel="canonical" href="https://myko-beta.vercel.app/pages/security.html" />
+<link rel="icon" href="../assets/img/logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+<canvas id="bg-mesh" aria-hidden="true"></canvas>
+
+<header class="site-header">
+  <div class="wrap nav-row">
+    <a href="/" class="brand">
+      <img src="../assets/img/logo.png" alt="Myko AI logo" />
+      Myko AI
+      <span class="stars-pill">★ <span data-github-stars>—</span></span>
+    </a>
+    <nav class="main-nav">
+      <a href="../index.html#product">Product</a>
+      <a href="../index.html#agents">AI</a>
+      <a href="../index.html#opensource">Open Source</a>
+      <a href="about.html">About</a>
+      <a href="changelog.html">Changelog</a>
+      <a href="https://github.com/mustafa-lil-dev/myko-ai-terminal" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle color theme">◐</button>
+      <a class="btn btn-primary btn-sm" href="../index.html#download">Download</a>
+      <button class="icon-btn menu-toggle" data-menu-toggle aria-label="Open menu">☰</button>
+    </div>
+  </div>
+  <nav class="mobile-nav">
+    <a href="../index.html#product">Product</a>
+    <a href="../index.html#agents">AI</a>
+    <a href="../index.html#opensource">Open Source</a>
+    <a href="about.html">About</a>
+    <a href="changelog.html">Changelog</a>
+    <a href="https://github.com/mustafa-lil-dev/myko-ai-terminal" target="_blank" rel="noopener">GitHub</a>
+  </nav>
+</header>
+
+<main>
+  <section class="page-header">
+    <div class="wrap prose">
+      <span class="kicker">legal</span>
+      <h1 class="display" style="font-size:clamp(2rem,4vw,2.8rem);">Security</h1>
+      <p class="tagline">How to report a vulnerability.</p>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="wrap prose">
+      <h2>Reporting a vulnerability</h2>
+      <p>If you find a security issue in Myko AI or this website, please open a private security
+        advisory on the <a href="https://github.com/mustafa-lil-dev/myko-ai-terminal/security" target="_blank" rel="noopener" style="text-decoration:underline;">GitHub repository</a>
+        rather than a public issue, so it can be addressed before details are disclosed publicly.</p>
+
+      <h2>Scope</h2>
+      <p>This covers the Myko AI desktop application and this website's source. It does not cover
+        third-party AI model providers you choose to connect to your own account.</p>
+
+      <h2>What to expect</h2>
+      <p>Reports are reviewed on a best-effort basis by the maintainer. There is no bug bounty program at
+        this time.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand"><img src="../assets/img/logo.png" alt="Myko AI logo" />Myko AI</div>
+        <p>Terminal. Editor. Agents. Git. Preview. One workspace.</p>
+        <p class="mono" style="font-size:12px;color:var(--text-faint);margin-top:14px;">v0.8.5 · Preview</p>
+      </div>
+      <div class="footer-col">
+        <h5>Product</h5>
+        <a href="../index.html#download">Download</a>
+        <a href="../index.html#product">Features</a>
+        <a href="changelog.html">Changelog</a>
+        <a href="about.html">About</a>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="security.html">Security</a>
+      </div>
+      <div class="footer-col">
+        <h5>Community</h5>
+        <a href="https://github.com/mustafa-lil-dev/myko-ai-terminal" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/mustafa-lil-dev/myko-ai-terminal/issues" target="_blank" rel="noopener">Issues</a>
+        <a href="https://github.com/mustafa-lil-dev/myko-ai-terminal/releases" target="_blank" rel="noopener">Releases</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Myko AI. All rights reserved.</span>
+      <span><a href="https://github.com/mustafa-lil-dev" target="_blank" rel="noopener">github.com/mustafa-lil-dev</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

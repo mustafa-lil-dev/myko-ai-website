@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Myko AI — an AI-native development workspace</title>
+<meta name="description" content="Myko AI puts your terminal, editor, Git, AI agents, and live preview in one lightweight workspace. Under 10MB on disk, no telemetry, bring your own key or run fully local." />
+<link rel="canonical" href="https://myko-beta.vercel.app/" />
+<meta property="og:title" content="Myko AI — an AI-native development workspace" />
+<meta property="og:description" content="Terminal. Editor. Agents. Git. Preview. One workspace." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://myko-beta.vercel.app/" />
+<meta property="og:image" content="assets/img/screens/Demo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="assets/img/logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<canvas id="bg-mesh" aria-hidden="true"></canvas>
+
+<header class="site-header">
+  <div class="wrap nav-row">
+    <a href="/" class="brand">
+      <img src="assets/img/logo.png" alt="Myko AI logo" />
+      Myko AI
+      <span class="stars-pill">★ <span data-github-stars>—</span></span>
+    </a>
+    <nav class="main-nav">
+      <a href="#product">Product</a>
+      <a href="#agents">AI</a>
+      <a href="#opensource">Open Source</a>
+      <a href="pages/about.html">About</a>
+      <a href="pages/changelog.html">Changelog</a>
+      <a href="https://github.com/mustafa-lil-dev/myko-ai-terminal" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle color theme">◐</button>
+      <a class="btn btn-primary btn-sm" href="#download">Download</a>
+      <button class="icon-btn menu-toggle" data-menu-toggle aria-label="Open menu">☰</button>
+    </div>
+  </div>
+  <nav class="mobile-nav">
+    <a href="#product">Product</a>
+    <a href="#agents">AI</a>
+    <a href="#opensource">Open Source</a>
+    <a href="pages/about.html">About</a>
+    <a href="pages/changelog.html">Changelog</a>
+    <a href="#faq">FAQ</a>
+    <a href="https://github.com/mustafa-lil-dev/myko-ai-terminal" target="_blank" rel="noopener">GitHub</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ============================== HERO ============================== -->
+  <section class="hero">
+    <div class="bg-glow" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="hero-top">
+        <span class="build-tag"><span class="dot"></span> Myko AI · v0.8.5 · preview</span>
+        <h1 class="display">Your entire development<br />workspace. Built around AI.</h1>
+        <p class="subhead">
+          Myko brings your terminal, editor, Git, AI agents, and a live preview into one lightweight
+          desktop app — under 10MB on disk, cold-starts in a blink, and works fully offline if that's
+          how you like it.
+        </p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#download">⬇ Download for Windows</a>
+          <a class="btn btn-ghost" href="https://github.com/mustafa-lil-dev/myko-ai-terminal" target="_blank" rel="noopener">View on GitHub</a>
+          <a class="btn btn-ghost" href="#workflow">See how it works</a>
+        </div>
+      </div>
+
+      <div class="stat-strip">
+        <div class="stat-cell"><div class="num">&lt; 10MB</div><div class="label">install size</div></div>
+        <div class="stat-cell"><div class="num">~299ms</div><div class="label">cold start</div></div>
+        <div class="stat-cell"><div class="num">0</div><div class="label">telemetry</div></div>
+        <div class="stat-cell"><div class="num">MIT-adjacent</div><div class="label">open source</div></div>
+      </div>
+
+      <div class="showcase reveal">
+        <div class="window">
+          <div class="window-bar">
+            <div class="dots"><span></span><span></span><span></span></div>
+            <span class="path mono">myko — terminal · editor · agent</span>
+          </div>
+          <img src="assets/img/screens/Demo.png" alt="Myko AI terminal, editor, and AI agent panel side by side" />
+          <div class="showcase-strip">
+            <span class="caret">❯</span>
+            <span data-type-target class="type-target"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= VALUE PROPOSITION ========================= -->
+  <section id="product" class="tight">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">why one workspace</span>
+        <h2 class="section-title">Everything you need to build, without the tab-switching.</h2>
+        <p>Separate apps for your shell, editor, Git client, and AI assistant means separate context every
+          time you switch. Myko keeps all of it — including what the agent is doing to your files right now —
+          in one place, so nothing gets lost in translation.</p>
+      </div>
+      <div class="stack-strip reveal">
+        <div class="stack-item"><strong>Terminal</strong>native PTY</div>
+        <div class="stack-item"><strong>Editor</strong>CodeMirror 6</div>
+        <div class="stack-item"><strong>AI agents</strong>plan → diff</div>
+        <div class="stack-item"><strong>Git</strong>graph & staging</div>
+        <div class="stack-item"><strong>Live preview</strong>auto-detected</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+
+    <!-- TERMINAL -->
+    <div class="feature-split reveal">
+      <div class="feature-copy">
+        <span class="kicker">terminal</span>
+        <h3 class="feature-title">Your terminal is the center of gravity.</h3>
+        <p class="lead">A native PTY under a GPU-rendered front end, so it starts instantly and stays smooth under heavy scrollback.</p>
+        <ul>
+          <li>Instant startup — no shell warm-up lag</li>
+          <li>Split panes, tabs, and a searchable scrollback</li>
+          <li>File explorer built into the sidebar</li>
+          <li>Jump straight into project-aware AI chat</li>
+        </ul>
+      </div>
+      <div class="feature-media">
+        <div class="window-bar"><div class="dots"><span></span><span></span><span></span></div></div>
+        <img src="assets/img/screens/terminal.png" alt="Myko AI terminal view with split panes" />
+      </div>
+    </div>
+
+    <!-- EDITOR -->
+    <div class="feature-split reverse reveal">
+      <div class="feature-copy">
+        <span class="kicker">editor</span>
+        <h3 class="feature-title">Code with context, not clutter.</h3>
+        <p class="lead">A CodeMirror 6 editor tuned for keyboard-first work, with AI autocomplete that understands the file you're in.</p>
+        <ul>
+          <li>Context-aware completions as you type</li>
+          <li>Full Vim modes — insert, visual, replace, and more</li>
+          <li>AI edit diffs with accept / reject, inline</li>
+          <li>Ships with several curated color themes</li>
+        </ul>
+      </div>
+      <div class="feature-media">
+        <div class="window-bar"><div class="dots"><span></span><span></span><span></span></div></div>
+        <img src="assets/img/screens/editor.jpg" alt="Myko AI code editor with Vim mode enabled" />
+      </div>
+    </div>
+
+    <!-- AGENTS -->
+    <div id="agents" class="feature-split reveal">
+      <div class="feature-copy">
+        <span class="kicker">ai agents</span>
+        <h3 class="feature-title">Agents that plan before they touch anything.</h3>
+        <p class="lead">Every request becomes a visible plan, then a set of reviewable diffs — never a silent rewrite.</p>
+        <ul>
+          <li>Plan mode breaks work into a task list first</li>
+          <li>Sub-agents for parallel research and editing</li>
+          <li>Multi-file edits, grep/glob, bash with approval gating</li>
+          <li>Project memory via a single <span class="mono">MYKO.md</span> file</li>
+        </ul>
+      </div>
+      <div class="feature-media">
+        <div class="window-bar"><div class="dots"><span></span><span></span><span></span></div></div>
+        <img src="assets/img/screens/ai-workflow.jpg" alt="Myko AI agent planning and diff review panel" />
+      </div>
+    </div>
+
+    <div class="agent-flow reveal" style="margin-top:-24px;margin-bottom:72px;">
+      <div class="agent-step"><span class="tag">01 · request</span><span class="desc">You describe what you want changed, in plain language.</span></div>
+      <div class="agent-step"><span class="tag">02 · plan</span><span class="desc">The agent reads the relevant files and lays out a <b>visible task list</b> before editing.</span></div>
+      <div class="agent-step"><span class="tag">03 · edit</span><span class="desc">Files are read, edited, and searched with grep/glob across the project.</span></div>
+      <div class="agent-step"><span class="tag">04 · review</span><span class="desc">Every change lands as a <b>diff you approve</b> — nothing is written silently.</span></div>
+      <div class="agent-step"><span class="tag">05 · run</span><span class="desc">Commands execute with approval gating; long jobs can run in the background.</span></div>
+      <div class="agent-step"><span class="tag">06 · verify</span><span class="desc">You check the result in the terminal, the diff, or the live preview.</span></div>
+    </div>
+    <div class="trust-note reveal" style="margin-top:-48px;margin-bottom:72px;">
+      <span class="glyph">▲</span> Every change is reviewable. The agent proposes; you decide what ships.
+    </div>
+
+    <!-- GIT -->
+    <div class="feature-split reverse reveal">
+      <div class="feature-copy">
+        <span class="kicker">source control</span>
+        <h3 class="feature-title">Git without leaving your workspace.</h3>
+        <p class="lead">Stage hunks, commit, and read your history through a real commit graph — without leaving the keyboard.</p>
+        <ul>
+          <li>Full Git graph with branches and commits</li>
+          <li>Hunk-level stage and unstage</li>
+          <li>Commit templates with AI-drafted summaries</li>
+          <li>Conflict resolution with inline merge markers</li>
+        </ul>
+      </div>
+      <div class="feature-media">
+        <div class="window-bar"><div class="dots"><span></span><span></span><span></span></div></div>
+        <img src="assets/img/screens/source-control.png" alt="Myko AI git graph view" />
+      </div>
+    </div>
+
+    <!-- PREVIEW -->
+    <div class="feature-split reveal">
+      <div class="feature-copy">
+        <span class="kicker">live preview</span>
+        <h3 class="feature-title">Preview your app without leaving the shell.</h3>
+        <p class="lead">Auto-detects your dev server — Vite, Next, and friends — and mounts a preview pane right beside your code.</p>
+        <ul>
+          <li>Auto-detected dev server, no config</li>
+          <li>Live preview pane next to your editor</li>
+          <li>Hot reload at the speed of your dev server</li>
+        </ul>
+      </div>
+      <div class="feature-media">
+        <div class="window-bar"><div class="dots"><span></span><span></span><span></span></div></div>
+        <img src="assets/img/screens/web-preview.png" alt="Myko AI live web preview pane beside the editor" />
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ========================= PROVIDERS / LOCAL AI ========================= -->
+  <section class="tight">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">bring your own model</span>
+        <h2 class="section-title">Hosted, local, or both. You decide where your prompts go.</h2>
+        <p>No proprietary Myko model — bring a hosted API key, or point Myko at a model running on your own
+          machine and stay fully offline.</p>
+      </div>
+      <div class="provider-panel reveal">
+        <div class="provider-row">
+          <div class="provider-cell">
+            <div class="h">hosted · byok</div>
+            <ul><li>OpenAI</li><li>Anthropic</li><li>Google Gemini</li><li>DeepSeek</li></ul>
+          </div>
+          <div class="provider-cell">
+            <div class="h">local / offline</div>
+            <ul><li>LM Studio</li><li>Ollama</li><li>MLX</li></ul>
+          </div>
+          <div class="provider-cell">
+            <div class="h">everything else</div>
+            <ul><li>OpenRouter</li><li>Any OpenAI-compatible endpoint</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= LOCAL-FIRST / PRIVACY ========================= -->
+  <section class="tight">
+    <div class="wrap">
+      <div class="feature-split" style="border-top:none;padding-top:0;">
+        <div class="feature-copy reveal">
+          <span class="kicker">local-first</span>
+          <h3 class="feature-title">Designed for developers who want control over where their code goes.</h3>
+          <p class="lead">Myko doesn't collect usage analytics or crash reports, and doesn't require an account.</p>
+          <ul>
+            <li>No telemetry, no account, no backend server</li>
+            <li>Bring your own key — nothing is proxied through Myko</li>
+            <li>Run local models and stay fully offline</li>
+            <li>Prompts and file context go only to the provider you configure</li>
+          </ul>
+        </div>
+        <div class="feature-media reveal">
+          <div class="window-bar"><div class="dots"><span></span><span></span><span></span></div><span class="path mono">privacy.html</span></div>
+          <div style="padding:28px 24px;">
+            <div class="stat-strip" style="margin-top:0;">
+              <div class="stat-cell"><div class="num">0</div><div class="label">telemetry events</div></div>
+              <div class="stat-cell"><div class="num">0</div><div class="label">accounts required</div></div>
+              <div class="stat-cell"><div class="num">1</div><div class="label">place your keys live: your machine</div></div>
+              <div class="stat-cell"><div class="num">your choice</div><div class="label">where prompts are sent</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= THEMES ========================= -->
+  <section class="tight">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">make it yours</span>
+        <h2 class="section-title">Themeable down to the last pixel.</h2>
+        <p>Curated themes as a starting point, and a fully open theme spec if you want to build your own.</p>
+      </div>
+      <div class="feature-media reveal" style="max-width:900px;margin:0 auto;">
+        <div class="window-bar"><div class="dots"><span></span><span></span><span></span></div><span class="path mono">settings → appearance</span></div>
+        <img src="assets/img/screens/themes.png" alt="Myko AI theme customization panel" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= WORKFLOW ========================= -->
+  <section id="workflow">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">how it feels</span>
+        <h2 class="section-title">Open project. Ask Myko. Review. Ship.</h2>
+      </div>
+      <div class="agent-flow reveal">
+        <div class="agent-step"><span class="tag">01 · open project</span><span class="desc">Point Myko at a folder — no project setup required.</span></div>
+        <div class="agent-step"><span class="tag">02 · ask myko</span><span class="desc">Describe the change in the built-in chat, right beside your files.</span></div>
+        <div class="agent-step"><span class="tag">03 · review plan</span><span class="desc">See the task list the agent intends to work through.</span></div>
+        <div class="agent-step"><span class="tag">04 · watch it work</span><span class="desc">Files are read, edited, and searched — visibly, in real time.</span></div>
+        <div class="agent-step"><span class="tag">05 · review diff</span><span class="desc">Accept, reject, or edit each change before it lands.</span></div>
+        <div class="agent-step"><span class="tag">06 · run &amp; preview</span><span class="desc">Run tests or check the live preview pane, without switching apps.</span></div>
+        <div class="agent-step"><span class="tag">07 · ship</span><span class="desc">Stage, commit, and push — from the same window you started in.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= EVERYTHING INCLUDED ========================= -->
+  <section class="tight">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">no plugins required</span>
+        <h2 class="section-title">More built in than you'd expect from a 10MB install.</h2>
+      </div>
+      <div class="list-table reveal">
+        <div class="list-row"><div class="name"><span class="cat">terminal</span>Voice input</div><div class="desc">Dictate commands or prompts hands-free.</div></div>
+        <div class="list-row"><div class="name"><span class="cat">ai</span>Local LLMs</div><div class="desc">Run entirely offline through LM Studio, Ollama, or MLX.</div></div>
+        <div class="list-row"><div class="name"><span class="cat">editor</span>AI autocomplete</div><div class="desc">Fast, context-aware completions right in the editor pane.</div></div>
+        <div class="list-row"><div class="name"><span class="cat">ai</span>MYKO.md</div><div class="desc">Drop project context and conventions into one file agents read automatically.</div></div>
+        <div class="list-row"><div class="name"><span class="cat">workflow</span>Plans &amp; tasks</div><div class="desc">Break a request into a visible task list before any code gets touched.</div></div>
+        <div class="list-row"><div class="name"><span class="cat">customization</span>Prebuilt themes</div><div class="desc">A handful of carefully tuned dark and light themes, ready on install.</div></div>
+        <div class="list-row"><div class="name"><span class="cat">workflow</span>Multi-tab</div><div class="desc">Terminal, editor, and preview tabs, all with independent state.</div></div>
+        <div class="list-row"><div class="name"><span class="cat">ai</span>AI diffs</div><div class="desc">Nothing lands until you review the change — every agent edit is a diff.</div></div>
+        <div class="list-row"><div class="name"><span class="cat">editor</span>Vim mode</div><div class="desc">Full modal editing, tuned to feel native rather than bolted-on.</div></div>
+        <div class="list-row"><div class="name"><span class="cat">workflow</span>Snippets &amp; slash commands</div><div class="desc">Reusable prompts and commands you can fire in a keystroke.</div></div>
+        <div class="list-row"><div class="name"><span class="cat">ai</span>Custom agents &amp; sub-agents</div><div class="desc">Delegate research or editing steps to purpose-built sub-agents.</div></div>
+        <div class="list-row"><div class="name"><span class="cat">git</span>Background processes</div><div class="desc">Long-running commands keep going while you keep working.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= OPEN SOURCE ========================= -->
+  <section id="opensource">
+    <div class="wrap">
+      <div class="oss-panel reveal">
+        <div>
+          <span class="kicker">open source</span>
+          <h2 class="section-title" style="margin-bottom:14px;">Myko is open source, end to end.</h2>
+          <p class="lead">Fork it, audit it, or send a pull request. The desktop app and this website are both public.</p>
+          <div class="hero-ctas" style="margin-top:24px;">
+            <a class="btn btn-primary" href="https://github.com/mustafa-lil-dev/myko-ai-terminal" target="_blank" rel="noopener">View on GitHub</a>
+            <a class="btn btn-ghost" href="https://github.com/mustafa-lil-dev/myko-ai-terminal/issues" target="_blank" rel="noopener">Report an issue</a>
+          </div>
+          <div class="tech-tags">
+            <span>Tauri 2</span><span>Rust</span><span>React 19</span><span>TypeScript</span>
+            <span>CodeMirror 6</span><span>xterm.js</span><span>Vite</span>
+          </div>
+        </div>
+        <div class="feature-media">
+          <div class="window-bar"><div class="dots"><span></span><span></span><span></span></div><span class="path mono">~/myko-ai</span></div>
+          <div style="padding:22px 20px;font-family:var(--mono);font-size:13px;line-height:1.9;color:var(--text-dim);">
+            <div><span style="color:var(--spore);">❯</span> git clone https://github.com/mustafa-lil-dev/myko-ai-terminal</div>
+            <div><span style="color:var(--spore);">❯</span> cd myko-ai &amp;&amp; npm install</div>
+            <div><span style="color:var(--spore);">❯</span> npm run tauri dev</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= DOWNLOAD ========================= -->
+  <section id="download">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">get started</span>
+        <h2 class="section-title">Pick a build. Run it.</h2>
+        <p>No account, no sign-up, no telemetry.</p>
+      </div>
+      <div class="download-grid reveal">
+        <div class="download-card">
+          <div class="os">Windows</div>
+          <div class="req">x64 · NSIS installer</div>
+          <a class="btn btn-primary" href="assets/downloads/Myko_0_8_5_x64-setup.exe" download>⬇ Download for Windows</a>
+        </div>
+        <div class="download-card disabled">
+          <div class="os">macOS</div>
+          <div class="req">Apple Silicon · M1+</div>
+          <a class="btn btn-ghost" href="https://github.com/mustafa-lil-dev/myko-ai-terminal/releases" target="_blank" rel="noopener">Build from source</a>
+        </div>
+        <div class="download-card">
+          <div class="os">Linux</div>
+          <div class="req">x64 · AppImage / .deb / .rpm</div>
+          <div class="download-options">
+            <a class="btn btn-primary btn-sm" href="https://github.com/mustafa-lil-dev/myko-ai-terminal/releases/download/v0.8.5/Myko_0.8.5_amd64.AppImage" download>⬇ AppImage</a>
+            <a class="btn btn-ghost btn-sm" href="https://github.com/mustafa-lil-dev/myko-ai-terminal/releases/download/v0.8.5/Myko_0.8.5_amd64.deb" download>.deb</a>
+            <a class="btn btn-ghost btn-sm" href="https://github.com/mustafa-lil-dev/myko-ai-terminal/releases/download/v0.8.5/Myko-0.8.5-1.x86_64.rpm" download>.rpm</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= FAQ ========================= -->
+  <section id="faq" class="tight">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">faq</span>
+        <h2 class="section-title">Questions, answered.</h2>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <button class="faq-q">Is Myko AI really free? <span class="chev">+</span></button>
+          <div class="faq-a"><p>Yes. It's free to use, fork, and modify. No account and no sign-up required.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Is Myko AI open source? <span class="chev">+</span></button>
+          <div class="faq-a"><p>Yes — both the desktop app and this website are public on GitHub under a GPL-3.0 license.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Do I need an account? <span class="chev">+</span></button>
+          <div class="faq-a"><p>No. There's no account system and no backend server operated by this project.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Can I use my own API key? <span class="chev">+</span></button>
+          <div class="faq-a"><p>Yes. Bring your own key for hosted models, or point Myko at a local model server like LM Studio and run entirely offline.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Which AI providers are supported? <span class="chev">+</span></button>
+          <div class="faq-a"><p>OpenAI, Anthropic, Google Gemini, DeepSeek, OpenRouter, any OpenAI-compatible endpoint, plus local models through LM Studio, Ollama, or MLX.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Where does my code go? <span class="chev">+</span></button>
+          <div class="faq-a"><p>Nowhere, unless you send it. Everything runs locally; prompts and file context are only sent to whichever provider you configure.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Which operating systems are supported? <span class="chev">+</span></button>
+          <div class="faq-a"><p>Windows is available today as a signed installer, and Linux ships as an AppImage, .deb, and .rpm. macOS can be built from source — see the GitHub repo.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Where can I report bugs? <span class="chev">+</span></button>
+          <div class="faq-a"><p>Open an issue on <a href="https://github.com/mustafa-lil-dev/myko-ai-terminal/issues" target="_blank" rel="noopener" style="text-decoration:underline;">GitHub</a> — bug reports and feature requests are both welcome.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand"><img src="assets/img/logo.png" alt="Myko AI logo" />Myko AI</div>
+        <p>Terminal. Editor. Agents. Git. Preview. One workspace.</p>
+        <p class="mono" style="font-size:12px;color:var(--text-faint);margin-top:14px;">v0.8.5 · Preview</p>
+      </div>
+      <div class="footer-col">
+        <h5>Product</h5>
+        <a href="#download">Download</a>
+        <a href="#product">Features</a>
+        <a href="pages/changelog.html">Changelog</a>
+        <a href="pages/about.html">About</a>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <a href="pages/privacy.html">Privacy</a>
+        <a href="pages/terms.html">Terms</a>
+        <a href="pages/security.html">Security</a>
+      </div>
+      <div class="footer-col">
+        <h5>Community</h5>
+        <a href="https://github.com/mustafa-lil-dev/myko-ai-terminal" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/mustafa-lil-dev/myko-ai-terminal/issues" target="_blank" rel="noopener">Issues</a>
+        <a href="https://github.com/mustafa-lil-dev/myko-ai-terminal/releases" target="_blank" rel="noopener">Releases</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Myko AI. All rights reserved.</span>
+      <span><a href="https://github.com/mustafa-lil-dev" target="_blank" rel="noopener">github.com/mustafa-lil-dev</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
